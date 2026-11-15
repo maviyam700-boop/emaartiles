@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emaar Tiles & Sanitary Ware | Islamabad</title>
+<style>
+:root{
+  --green:#173d35;--deep:#102c27;--gold:#c49a57;
+  --cream:#f4f0e7;--ink:#202923;--muted:#777c74;--white:#fffdf8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+button,input{font:inherit}
+button{cursor:pointer}
+.topbar{background:var(--deep);color:#e9dfca;text-align:center;padding:9px 15px;font-size:12px;letter-spacing:1.5px}
+header{background:var(--white);position:sticky;top:0;z-index:20;border-bottom:1px solid #e5dfd2}
+.nav{max-width:1240px;margin:auto;padding:17px 25px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:43px;height:43px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-family:Georgia,serif;font-size:24px}
+.brand h2{font-family:Georgia,serif;color:var(--green);font-size:21px}
+.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:2px;margin-top:4px}
+.navlinks{display:flex;align-items:center;gap:18px}
+.navlinks button{border:0;background:none;color:var(--ink);font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.navlinks button:hover{color:var(--gold)}
+.menu-btn{display:none;background:none;border:0;font-size:25px;color:var(--green)}
+.admin-access-btn{display:inline-block;background:var(--green);color:#fff;border:1px solid var(--gold);padding:11px 15px;font-size:10px;letter-spacing:1px;font-weight:bold;white-space:nowrap}
+.admin-access-btn:hover{background:var(--deep)}
+.hero{background:linear-gradient(110deg,rgba(12,42,35,.97),rgba(19,57,48,.91));color:white;position:relative;overflow:hidden;min-height:490px;display:flex;align-items:center}
+.hero:after{content:"";position:absolute;right:-100px;top:-140px;width:620px;height:620px;border:1px solid rgba(196,154,87,.28);transform:rotate(35deg);background:repeating-linear-gradient(45deg,transparent 0 38px,rgba(196,154,87,.07) 39px 40px)}
+.hero-inner{max-width:1240px;width:100%;margin:auto;padding:85px 35px;position:relative;z-index:1}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-family:Georgia,serif;font-weight:normal;font-size:clamp(43px,6vw,75px);line-height:1.08;max-width:700px}
+.hero h1 em{color:#d8b77f;font-weight:normal}
+.hero p{color:#d2d9d2;max-width:520px;line-height:1.8;margin:23px 0 30px;font-size:14px}
+.primary-btn{display:inline-block;background:var(--gold);color:#172c25;padding:15px 25px;border:0;text-decoration:none;font-size:11px;letter-spacing:1.5px;font-weight:bold}
+.primary-btn:hover{background:#dfbd83}
+.hero-note{position:absolute;right:45px;bottom:40px;z-index:2;color:#d7c49f;font-family:Georgia,serif;font-style:italic;font-size:15px;letter-spacing:1px}
+.section{max-width:1240px;margin:auto;padding:78px 25px}
+.section-head{text-align:center;margin-bottom:38px}
+.section-head .eyebrow{margin-bottom:12px}
+.section-head h2{font:normal 38px Georgia,serif;color:var(--green)}
+.section-head p{font-size:13px;color:var(--muted);margin-top:12px}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.category-card{background:var(--white);border:1px solid #e7e0d2;text-align:left;padding:0;overflow:hidden;transition:.25s;cursor:pointer}
+.category-card:hover{transform:translateY(-5px);box-shadow:0 15px 35px #243b2b18}
+.category-art{height:205px;overflow:hidden;background:#ded8c9}
+.category-info{padding:20px 21px}
+.category-info h3{font:normal 22px Georgia,serif;color:var(--green)}
+.category-info p{font-size:12px;color:var(--muted);margin-top:7px}
+.category-info span{display:inline-block;color:#9a713c;font-size:10px;letter-spacing:1.5px;margin-top:17px}
+.art-svg{width:100%;height:100%;display:block}
+.intro-band{background:var(--green);color:white;padding:55px 25px}
+.intro-inner{max-width:1160px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:30px}
+.intro-inner h2{font:normal 30px Georgia,serif}
+.intro-inner p{font-size:13px;color:#d5ded7;line-height:1.7;max-width:520px;margin-top:10px}
+.outline-btn{border:1px solid var(--gold);background:transparent;color:#e7c58d;padding:14px 20px;white-space:nowrap;font-size:11px;letter-spacing:1px}
+.product-tools{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px;flex-wrap:wrap}
+.search{background:white;border:1px solid #ded8cb;padding:12px 15px;width:min(330px,100%);outline:none;font-size:13px}
+
+/* PRODUCTS */
+.product-grid{display:grid;grid-template-columns:1fr;gap:17px}
+.product-card{background:var(--white);border:1px solid #e6dfd2;overflow:hidden;cursor:pointer;transition:.2s;display:grid;grid-template-columns:280px 1fr;min-height:190px}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #243b2b15}
+.product-art{height:100%;min-height:190px;background:#e5dfd3;overflow:hidden}
+.product-info{padding:25px 28px;align-self:center}
+.product-info small{color:#9b7947;letter-spacing:1.4px;font-size:9px;text-transform:uppercase}
+.product-info h3{font:normal 23px Georgia,serif;margin:9px 0;color:var(--green)}
+.product-info p{font-size:12px;color:var(--muted);line-height:1.7}
+.product-info .view{display:block;margin-top:15px;font-size:10px;letter-spacing:1.5px;color:#98703b}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;background:#ebe5d8;padding:38px;margin-top:20px}
+.promise-item{text-align:center}
+.promise-item b{font:normal 20px Georgia,serif;color:var(--green)}
+.promise-item p{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}
+.contact{background:var(--deep);color:white;padding:75px 25px}
+.contact-inner{max-width:1150px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact h2{font:normal 39px Georgia,serif;margin-bottom:18px}
+.contact p{font-size:13px;color:#cbd4cd;line-height:1.9}
+.contact-detail{border-bottom:1px solid #ffffff25;padding:17px 0}
+.contact-detail small{display:block;color:var(--gold);font-size:10px;letter-spacing:2px;margin-bottom:7px}
+.contact-detail a{color:white;text-decoration:none;font-size:14px}
+.footer{background:#0b211d;color:#9ba89f;text-align:center;padding:22px;font-size:11px;letter-spacing:1px}
+.view-page{display:none;min-height:70vh}
+.view-page.active{display:block}
+.back{border:0;background:none;color:#9a713c;font-size:11px;letter-spacing:1.5px;margin-bottom:25px}
+.page-title{font:normal 40px Georgia,serif;color:var(--green);margin-bottom:10px}
+.page-subtitle{color:var(--muted);font-size:13px;margin-bottom:30px}
+.detail-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:45px;align-items:start}
+.detail-art{height:430px;background:#e4ddcf;overflow:hidden}
+.detail-info{padding:15px 0}
+.detail-info h1{font:normal 38px Georgia,serif;color:var(--green);margin:12px 0}
+.detail-info p{color:#70766f;font-size:14px;line-height:1.9;margin:18px 0}
+.detail-label{color:#a17b47;font-size:10px;letter-spacing:2px}
+.detail-price{font:normal 25px Georgia,serif;color:var(--green);margin:25px 0}
+.whatsapp{display:inline-block;background:#247c55;color:white;text-decoration:none;padding:15px 22px;font-size:11px;letter-spacing:1px}
+.empty{padding:35px;text-align:center;color:var(--muted)}
+
+/* ADMIN PICTURE CONTROLS */
+.admin-picture-tools{display:none;margin-top:14px}
+body.admin-mode .admin-picture-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.admin-picture-btn{border:1px solid var(--gold);background:#f5ead7;color:#5c4324;padding:10px 14px;font-size:10px;font-weight:bold;letter-spacing:1px;cursor:pointer}
+.admin-login-modal{display:none;position:fixed;inset:0;background:rgba(8,24,20,.72);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.admin-login-modal.open{display:flex}
+.admin-login-panel{width:min(420px,100%);background:var(--white);padding:30px;border:1px solid var(--gold);box-shadow:0 20px 70px #0005}
+.admin-login-panel h2{font:normal 29px Georgia,serif;color:var(--green);margin-bottom:8px}
+.admin-login-panel p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+.admin-login-panel label{display:block;font-size:11px;letter-spacing:1px;color:var(--green);margin-bottom:8px}
+.admin-login-panel input{width:100%;padding:13px;border:1px solid #d8d0c1;margin-bottom:16px}
+.admin-login-actions{display:flex;gap:10px;align-items:center}
+.admin-login-error{display:none;color:#a12d2d;font-size:12px;margin-top:12px}
+.admin-publish-bar{display:none;background:#e9e1d2;padding:15px 18px;margin:0 0 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--green)}
+body.admin-mode .admin-publish-bar{display:flex}
+
+@media(max-width:850px){
+ .navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:white;padding:22px;flex-direction:column;align-items:flex-start;border-bottom:1px solid #ddd}
+ .navlinks.open{display:flex}.menu-btn{display:block}
+ .category-grid{grid-template-columns:repeat(2,1fr)}
+ .intro-inner{display:block}.outline-btn{margin-top:22px}
+ .product-card{grid-template-columns:220px 1fr}
+}
+@media(max-width:600px){
+ .nav{padding:13px 16px}.brand h2{font-size:17px}
+ .hero{min-height:430px}.hero-inner{padding:65px 22px}.hero-note{display:none}
+ .section{padding:55px 16px}
+ .category-grid{grid-template-columns:1fr 1fr;gap:10px}
+ .category-art{height:145px}.category-info{padding:13px}
+ .category-info h3{font-size:17px}.category-info p{font-size:10px}
+ .product-card{grid-template-columns:1fr}
+ .product-art{height:190px;min-height:190px}
+ .product-info{padding:17px}
+ .product-info h3{font-size:20px}
+ .promise{grid-template-columns:1fr;padding:25px}
+ .contact-inner,.detail-layout{grid-template-columns:1fr;gap:25px}
+ .detail-art{height:300px}.detail-info h1{font-size:30px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">EMAAR TILES & SANITARY WARE · I-11/3 ISLAMABAD</div>
+<header>
+<div class="nav">
+ <div class="brand"><div class="logo">E</div><div><h2>Emaar Tiles</h2><small>TILES & SANITARY WARE</small></div></div>
+ <nav class="navlinks" id="navlinks">
+  <button onclick="goHome()">Home</button>
+  <button onclick="showCategory('Kitchen Tiles')">Kitchen</button>
+  <button onclick="showCategory('Bathroom Tiles')">Bathroom</button>
+  <button onclick="showCategory('Floor Tiles')">Floor Tiles</button>
+  <button onclick="showCategory('Front Elevation Tiles')">Front Elevation</button>
+  <button onclick="showCategory('Sanitary Ware')">Sanitary Ware</button>
+  <button onclick="showCategory('Tile Bond')">Tile Bond</button>
+  <button onclick="goContact()">Contact</button>
+ </nav>
+ <button class="admin-access-btn" id="adminToggle" type="button" onclick="toggleAdmin()">ADMIN LOGIN</button>
+ <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+</div>
+</header>
+
+<div class="admin-login-modal" id="nameModal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeNameModal()">
+ <div class="admin-login-panel">
+  <h2>Edit Product Name</h2>
+  <p id="nameModalHint">Type the new name for this product.</p>
+  <label for="nameInput">PRODUCT NAME</label>
+  <input id="nameInput" type="text" maxlength="80" autocomplete="off" onkeydown="if(event.key==='Enter')saveNameFromModal()">
+  <div class="admin-login-actions"><button class="primary-btn" type="button" onclick="saveNameFromModal()">SAVE NAME</button><button class="outline-btn" type="button" onclick="closeNameModal()">CANCEL</button></div>
+  <div class="admin-login-error" id="nameError"></div>
+ </div>
+</div>
+<div class="admin-login-modal" id="adminLoginModal" role="dialog" aria-modal="true" aria-labelledby="adminLoginTitle" onclick="if(event.target===this)closeAdminLogin()">
+ <div class="admin-login-panel">
+  <h2 id="adminLoginTitle">Admin Login</h2>
+  <p>Sign in to manage Emaar product pictures.</p>
+  <label for="adminPasswordInput">ADMIN PASSWORD</label>
+  <input id="adminPasswordInput" type="password" placeholder="Enter admin password" autocomplete="current-password" required>
+  <div class="admin-login-actions"><button class="primary-btn" type="button" onclick="submitAdminLogin()">LOGIN</button><button class="outline-btn" type="button" onclick="closeAdminLogin()">CANCEL</button></div>
+  <div class="admin-login-error" id="adminLoginError">Incorrect password. Please try again.</div>
+ </div>
+</div>
+
+<main id="homeView">
+<section class="hero">
+ <div class="hero-inner">
+  <div class="eyebrow">A refined collection of surfaces</div>
+  <h1>Make every surface <em>beautiful.</em></h1>
+  <p>Discover thoughtfully selected tiles and sanitary ware for your spaces. Explore our collections and find the finish that feels right.</p>
+  <button class="primary-btn" onclick="document.getElementById('collections').scrollIntoView()">EXPLORE COLLECTIONS →</button>
+ </div>
+ <div class="hero-note">Quality in every detail</div>
+</section>
+
+<section class="section" id="collections">
+ <div class="section-head"><div class="eyebrow">Explore our range</div><h2>Our Collections</h2><p>Choose a category to explore its product range.</p></div>
+ <div class="category-grid" id="categoryGrid"></div>
+</section>
+
+<section class="intro-band"><div class="intro-inner">
+ <div><h2>Find the right finish for your space.</h2><p>From refined tile surfaces to everyday sanitary essentials, explore a collection focused on materials, finishes and details.</p></div>
+ <button class="outline-btn" onclick="goContact()">VISIT OUR SHOWROOM →</button>
+</div></section>
+
+<section class="section">
+ <div class="section-head"><div class="eyebrow">A closer look</div><h2>Selected Designs</h2><p>Explore a few sample designs from our catalogue.</p></div>
+ <div class="admin-publish-bar">
+  <span>ADMIN MODE (name editing v2): Picture and name changes are saved locally. Publish an updated HTML copy to show them to customers.</span>
+  <button class="primary-btn" type="button" onclick="exportUpdatedWebsite()">PUBLISH UPDATED WEBSITE</button>
+ </div>
+ <div class="product-tools">
+  <span style="font:normal 20px Georgia,serif;color:var(--green)">Catalogue preview</span>
+  <input class="search" id="homeSearch" placeholder="Search tiles or products..." oninput="searchProducts(this.value)">
+ </div>
+ <div class="product-grid" id="homeProducts"></div>
+</section>
+
+<section class="section" style="padding-top:0"><div class="promise">
+ <div class="promise-item"><b>Tile Collections</b><p>Different colours, textures, sizes and finishes.</p></div>
+ <div class="promise-item"><b>Sanitary Essentials</b><p>Explore practical and elegant bathroom products.</p></div>
+ <div class="promise-item"><b>Personal Assistance</b><p>Contact us to ask about designs, stock and prices.</p></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="contact-inner">
+ <div><div class="eyebrow">Come and see us</div><h2>Let's find your perfect finish.</h2>
+ <p>Visit our showroom in Islamabad or contact us directly for product information and enquiries.</p><br>
+ <a class="whatsapp" href="https://wa.me/923459002334" target="_blank">CHAT ON WHATSAPP ↗</a></div>
+ <div>
+  <div class="contact-detail"><small>SHOWROOM ADDRESS</small><p>Plot 26, Tiles and Sanitary Market, I-11/3, Islamabad, Pakistan</p></div>
+  <div class="contact-detail"><small>PHONE / WHATSAPP</small><a href="tel:+923459002334">+92 345 9002334</a></div>
+  <div class="contact-detail"><small>BUSINESS</small><p>Emaar Tiles & Sanitary Ware</p></div>
+ </div>
+</div></section>
+</main>
+
+<section class="section view-page" id="categoryView">
+ <button class="back" onclick="goHome()">← BACK TO HOME</button>
+ <div class="eyebrow">Browse our range</div><h1 class="page-title" id="categoryTitle"></h1>
+ <p class="page-subtitle" id="categoryDescription"></p>
+ <div class="product-grid" id="categoryProducts"></div>
+</section>
+
+<section class="section view-page" id="productView">
+ <button class="back" onclick="goBack()">← BACK</button>
+ <div class="detail-layout">
+  <div class="detail-art" id="detailArt"></div>
+  <div class="detail-info"><div class="detail-label" id="detailCategory"></div>
+   <h1 id="detailName"></h1><p id="detailDescription"></p>
+   <div class="detail-price">Ask for Price</div>
+   <p>Contact our team for current availability, sizes, finishes and pricing.</p>
+   <a class="whatsapp" id="detailWhatsApp" target="_blank">ENQUIRE ON WHATSAPP ↗</a>
+  </div>
+ </div>
+</section>
+<footer class="footer">© 2026 EMAAR TILES & SANITARY WARE · ISLAMABAD, PAKISTAN</footer>
+
+<script id="emaar-published-images" type="application/json">{}</script>
+<script id="emaar-published-category-images" type="application/json">{}</script>
+<script id="emaar-published-names" type="application/json">{}</script>
+<script>
+const categories=[
+{name:"Kitchen Tiles",desc:"Wall tiles, backsplash designs and kitchen surfaces.",type:"tile"},
+{name:"Bathroom Tiles",desc:"Wall and floor tile designs for bathrooms.",type:"tile"},
+{name:"Floor Tiles",desc:"Durable tile designs in a range of finishes.",type:"tile"},
+{name:"Front Elevation Tiles",desc:"Exterior wall cladding and facade tile finishes.",type:"tile"},
+{name:"Sanitary Ware",desc:"Washbasins, toilets, taps and bathroom essentials.",type:"sanitary"},
+{name:"Tile Bond",desc:"Tile adhesive and installation essentials.",type:"bond"}
+];
+
+const products=[
+{name:"Ivory Vein Ceramic",cat:"Kitchen Tiles",desc:"An elegant ivory tile surface with delicate flowing details.",kind:"tile",style:0},
+{name:"Stone Grey Wall Tile",cat:"Kitchen Tiles",desc:"A subtle grey stone-texture finish for a clean backsplash.",kind:"tile",style:1},
+{name:"Sandstone Beige",cat:"Kitchen Tiles",desc:"Warm beige tones with a softly textured surface.",kind:"tile",style:2},
+{name:"Cloud White Bathroom Tile",cat:"Bathroom Tiles",desc:"A calm white tile design with a soft, refined finish.",kind:"tile",style:3},
+{name:"Graphite Slate",cat:"Bathroom Tiles",desc:"Deep graphite colour with a natural slate-inspired texture.",kind:"tile",style:4},
+{name:"Pearl Vein Ceramic",cat:"Bathroom Tiles",desc:"A light pearl tile surface with gentle flowing details.",kind:"tile",style:5},
+{name:"Classic Travertine",cat:"Floor Tiles",desc:"A warm stone-texture design with natural linear variation.",kind:"tile",style:6},
+{name:"Urban Concrete",cat:"Floor Tiles",desc:"A contemporary concrete-texture finish in soft grey.",kind:"tile",style:7},
+{name:"Midnight Charcoal",cat:"Floor Tiles",desc:"A rich dark tile finish for a bold, understated look.",kind:"tile",style:8},
+{name:"Sandstone Cladding",cat:"Front Elevation Tiles",desc:"Textured exterior tile sample in a warm sandstone shade.",kind:"tile",style:9},
+{name:"Linear Stone Finish",cat:"Front Elevation Tiles",desc:"A linear stone-texture exterior wall tile design.",kind:"tile",style:10},
+{name:"Dark Rock Texture",cat:"Front Elevation Tiles",desc:"A deep textured finish for exterior wall applications.",kind:"tile",style:11},
+{name:"Modern Counter Basin",cat:"Sanitary Ware",desc:"A sample design of a contemporary countertop washbasin.",kind:"basin",style:0},
+{name:"Classic Ceramic Basin",cat:"Sanitary Ware",desc:"A simple white ceramic basin with a timeless shape.",kind:"basin",style:1},
+{name:"Modern Close-Coupled Toilet",cat:"Sanitary Ware",desc:"A sample modern ceramic toilet design.",kind:"toilet",style:0},
+{name:"Chrome Basin Mixer",cat:"Sanitary Ware",desc:"A polished chrome-style basin mixer tap sample.",kind:"tap",style:0},
+{name:"Tile Bond Adhesive",cat:"Tile Bond",desc:"Sample tile adhesive product packaging. Ask about available brands and sizes.",kind:"bond",style:0},
+{name:"Tile Bond Pro",cat:"Tile Bond",desc:"Sample adhesive packaging for tile installation enquiries.",kind:"bond",style:1}
+];
+
+const palettes=[
+["#e5d9c3","#c8b99e","#f3ebdc"],["#aaa99f","#777b76","#d3d0c7"],
+["#d7c4a5","#a99576","#eee0c6"],["#e9e5dc","#c9c4b9","#f8f5ed"],
+["#535650","#777a70","#30332f"],["#ded8cb","#aaa397","#f2eee6"],
+["#bda98a","#907c61","#e1d2b9"],["#a7aaa5","#777c78","#d1d2cc"],
+["#454743","#292c29","#6b6d66"],["#c5ae8d","#927b5e","#dfcfb3"],
+["#aaa49a","#77746d","#d3c9b9"],["#55564f","#343630","#77766d"]
+];
+
+function tileSVG(i){
+const p=palettes[i%palettes.length];
+const lines=i%3===0
+?`<path d="M-20 90 Q90 30 180 120 T420 90" stroke="${p[1]}" stroke-width="3" fill="none" opacity=".45"/><path d="M-20 150 Q100 80 220 175 T440 145" stroke="${p[2]}" stroke-width="2" fill="none" opacity=".7"/>`
+:i%3===1
+?`<path d="M0 50 H420 M0 105 H420 M0 160 H420 M100 0 V210 M210 0 V210 M320 0 V210" stroke="${p[1]}" stroke-width="1" opacity=".23"/>`
+:`<path d="M0 30 L420 0 M0 95 L420 65 M0 160 L420 130 M0 210 L420 180" stroke="${p[1]}" stroke-width="5" opacity=".13"/>`;
+return `<svg class="art-svg" viewBox="0 0 420 210" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="g${i}" x2="1" y2="1"><stop stop-color="${p[0]}"/><stop offset="1" stop-color="${p[2]}"/></linearGradient></defs>
+<rect width="420" height="210" fill="url(#g${i})"/><rect x="8" y="8" width="404" height="194" fill="none" stroke="#ffffff" stroke-opacity=".55"/>
+${lines}<text x="22" y="190" font-size="9" letter-spacing="3" fill="${p[1]}" opacity=".75">EMAAR · TILE SAMPLE</text></svg>`;
+}
+function sanitarySVG(kind){
+if(kind==="basin")return `<svg class="art-svg" viewBox="0 0 420 210"><defs><linearGradient id="cer" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#c8c9c4"/></linearGradient></defs><rect width="420" height="210" fill="#e7e2d8"/><ellipse cx="210" cy="175" rx="125" ry="13" fill="#aaa69d" opacity=".3"/><path d="M105 94 Q210 55 315 94 L290 145 Q210 183 130 145Z" fill="url(#cer)" stroke="#aaa9a3" stroke-width="2"/><ellipse cx="210" cy="94" rx="105" ry="35" fill="#fff" stroke="#aaa9a3" stroke-width="2"/><ellipse cx="210" cy="94" rx="49" ry="14" fill="#c4c7c3"/><ellipse cx="210" cy="94" rx="36" ry="9" fill="#777e7b"/><text x="20" y="195" font-size="9" letter-spacing="3" fill="#85857d">CERAMIC BASIN SAMPLE</text></svg>`;
+if(kind==="toilet")return `<svg class="art-svg" viewBox="0 0 420 210"><rect width="420" height="210" fill="#e7e2d8"/><ellipse cx="215" cy="181" rx="100" ry="11" fill="#aaa69d" opacity=".3"/><rect x="153" y="30" width="112" height="68" rx="12" fill="#f9f9f5" stroke="#b8b9b4" stroke-width="2"/><path d="M165 92 H255 L266 142 Q260 174 211 177 Q162 174 154 142Z" fill="#f6f6f1" stroke="#b8b9b4" stroke-width="2"/><ellipse cx="210" cy="103" rx="61" ry="24" fill="#fff" stroke="#b8b9b4" stroke-width="3"/><ellipse cx="210" cy="104" rx="42" ry="13" fill="#d8dcd7"/><text x="20" y="195" font-size="9" letter-spacing="3" fill="#85857d">CERAMIC TOILET SAMPLE</text></svg>`;
+if(kind==="tap")return `<svg class="art-svg" viewBox="0 0 420 210"><rect width="420" height="210" fill="#e7e2d8"/><ellipse cx="210" cy="178" rx="100" ry="12" fill="#aaa69d" opacity=".3"/><rect x="165" y="160" width="90" height="12" rx="5" fill="#a5aaa7"/><path d="M205 160 V88 Q205 55 240 55 H280 Q300 55 300 75 V83" fill="none" stroke="#aeb5b2" stroke-width="17" stroke-linecap="round"/><path d="M205 160 V88 Q205 55 240 55 H280 Q300 55 300 75 V83" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="round" opacity=".8"/><path d="M180 160 V126" stroke="#aeb5b2" stroke-width="13" stroke-linecap="round"/><text x="20" y="195" font-size="9" letter-spacing="3" fill="#85857d">CHROME TAP SAMPLE</text></svg>`;
+return "";
+}
+function bondSVG(i){return `<svg class="art-svg" viewBox="0 0 420 210"><rect width="420" height="210" fill="#e6dfd2"/><ellipse cx="210" cy="183" rx="95" ry="10" fill="#9b9384" opacity=".25"/><path d="M125 44 L284 44 L302 65 L302 169 L125 169Z" fill="${i===0?"#d6c5a0":"#c9d4c7"}" stroke="#93866e" stroke-width="2"/><path d="M284 44 L302 65 L302 169 L284 151Z" fill="#8f8c7e"/><rect x="125" y="44" width="159" height="28" fill="#244c3c"/><text x="204" y="62" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold" letter-spacing="2">TILE BOND</text><text x="204" y="105" text-anchor="middle" fill="#35473c" font-size="17" font-weight="bold">ADHESIVE</text><text x="204" y="124" text-anchor="middle" fill="#596557" font-size="9">TILE INSTALLATION</text><rect x="158" y="137" width="93" height="5" fill="#b5a98f"/><text x="20" y="195" font-size="9" letter-spacing="3" fill="#85857d">SAMPLE PACKAGING VISUAL</text></svg>`}
+function artFor(item){if(item.kind==="tile")return tileSVG(item.style);if(item.kind==="bond")return bondSVG(item.style);return sanitarySVG(item.kind)}
+function categoryArt(cat){if(cat.image)return `<img src="${cat.image}" alt="${cat.name}" style="width:100%;height:100%;object-fit:cover;display:block">`;if(cat.type==="tile")return tileSVG(categories.indexOf(cat)+2);if(cat.type==="bond")return bondSVG(0);return sanitarySVG("basin")}
+
+function productCard(item){
+ const idx=products.indexOf(item);
+ const picture=item.image
+  ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;display:block">`
+  : artFor(item);
+
+ return `<article class="product-card" onclick="showProduct(${idx})">
+  <div class="product-art">${picture}</div>
+  <div class="product-info">
+   <small>${item.cat}</small>
+   <h3>${item.name}</h3>
+   <p>${item.desc}</p>
+   <span class="view">VIEW PRODUCT →</span>
+   <div class="admin-picture-tools">
+    <button class="admin-picture-btn" type="button" onclick="event.stopPropagation();chooseProductPicture(${idx})">${item.image?"CHANGE PICTURE":"ADD PICTURE"}</button>
+    <button class="admin-picture-btn" type="button" onclick="event.stopPropagation();editProductName(${idx})">EDIT NAME</button>
+    <input type="file" id="picture-file-${idx}" accept="image/*" hidden onchange="saveProductPicture(${idx},this)">
+   </div>
+  </div>
+ </article>`;
+}
+
+function renderCategories(){
+document.getElementById("categoryGrid").innerHTML=categories.map((cat,index)=>`<article class="category-card" onclick="showCategory('${cat.name}')"><div class="category-art">${categoryArt(cat)}</div><div class="category-info"><h3>${cat.name}</h3><p>${cat.desc}</p><span>EXPLORE CATEGORY →</span><div class="admin-picture-tools"><button class="admin-picture-btn" type="button" onclick="event.stopPropagation();chooseCategoryPicture(${index})">${cat.image?"CHANGE MAIN PICTURE":"ADD MAIN PICTURE"}</button><input type="file" id="category-picture-file-${index}" accept="image/*" hidden onchange="saveCategoryPicture(${index},this)"></div></div></article>`).join("");
+}
+function renderHomeProducts(list=products.slice(0,8)){
+document.getElementById("homeProducts").innerHTML=list.length?list.map(productCard).join():'<div class="empty">No matching products found.</div>';
+}
+function searchProducts(value){
+const q=value.toLowerCase().trim();
+renderHomeProducts(products.filter(p=>(p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(q)));
+}
+let previousView="home";
+function hideViews(){
+document.getElementById("homeView").style.display="none";
+document.getElementById("categoryView").classList.remove("active");
+document.getElementById("productView").classList.remove("active");
+}
+function goHome(){hideViews();document.getElementById("homeView").style.display="block";window.scrollTo(0,0);closeMenu()}
+function showCategory(name){
+previousView="category";hideViews();
+const cat=categories.find(c=>c.name===name);
+document.getElementById("categoryTitle").textContent=name;
+document.getElementById("categoryDescription").textContent=cat?cat.desc:"Explore our products.";
+const list=products.filter(p=>p.cat===name);
+document.getElementById("categoryProducts").innerHTML=list.map(productCard).join()||'<div class="empty">Products will be added soon.</div>';
+document.getElementById("categoryView").classList.add("active");window.scrollTo(0,0);closeMenu();
+}
+function showProduct(index){
+const item=products[index];if(!item)return;
+previousView=document.getElementById("categoryView").classList.contains("active")?"category":"home";
+hideViews();
+document.getElementById("detailArt").innerHTML=item.image?`<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover">`:artFor(item);
+document.getElementById("detailCategory").textContent=item.cat;
+document.getElementById("detailName").textContent=item.name;
+document.getElementById("detailDescription").textContent=item.desc;
+const message=encodeURIComponent("Hello Emaar Tiles, I am interested in "+item.name+". Please share its price and availability.");
+document.getElementById("detailWhatsApp").href="https://wa.me/923459002334?text="+message;
+document.getElementById("productView").classList.add("active");window.scrollTo(0,0);
+}
+function goBack(){if(previousView==="category"){showCategory(document.getElementById("detailCategory").textContent)}else goHome()}
+function goContact(){goHome();setTimeout(()=>document.getElementById("contact").scrollIntoView({behavior:"smooth"}),50);closeMenu()}
+function toggleMenu(){document.getElementById("navlinks").classList.toggle("open")}
+function closeMenu(){document.getElementById("navlinks").classList.remove("open")}
+
+// EMAAR ADMIN PICTURE UPLOAD & PUBLISHING
+const ADMIN_PASSWORD = "0passward0";
+const PICTURE_STORAGE_KEY = "emaar_product_pictures_v1";
+const CATEGORY_PICTURE_STORAGE_KEY = "emaar_category_pictures_v1";
+const NAME_STORAGE_KEY = "emaar_product_names_v1";
+
+function loadProductNames(){
+    const tag = document.getElementById("emaar-published-names");
+    if(tag){
+        try{
+            const data = JSON.parse(tag.textContent || "{}");
+            products.forEach((product,index)=>{ if(data[index]) product.name = data[index]; });
+        }catch(error){ console.warn("Could not read published product names.",error); }
+    }
+    try{
+        const saved = JSON.parse(localStorage.getItem(NAME_STORAGE_KEY) || "{}");
+        products.forEach((product,index)=>{ if(saved[index]) product.name = saved[index]; });
+    }catch(error){ console.warn("Could not read saved product names.",error); }
+}
+
+let editingNameIndex = -1;
+function showToast(message){
+    const t = document.createElement("div");
+    t.textContent = message;
+    t.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#244c3c;color:#fff;padding:13px 20px;border:1px solid #c8a64b;z-index:10000;font-size:13px;max-width:90%;text-align:center";
+    document.body.appendChild(t);
+    setTimeout(()=>t.remove(),4200);
+}
+function editProductName(index){
+    const product = products[index]; if(!product) return;
+    editingNameIndex = index;
+    document.getElementById("nameModalHint").textContent = "Current name: " + product.name;
+    const input = document.getElementById("nameInput");
+    input.value = product.name;
+    const err = document.getElementById("nameError"); err.style.display = "none";
+    document.getElementById("nameModal").classList.add("open");
+    setTimeout(()=>{ input.focus(); input.select(); },50);
+}
+function closeNameModal(){
+    document.getElementById("nameModal").classList.remove("open");
+    editingNameIndex = -1;
+}
+function saveNameFromModal(){
+    const product = products[editingNameIndex]; if(!product) return;
+    const err = document.getElementById("nameError");
+    const newName = document.getElementById("nameInput").value.trim().split(/\s+/).join(" ");
+    if(!newName){ err.textContent = "The product name cannot be empty."; err.style.display = "block"; return; }
+    const oldName = product.name;
+    product.name = newName;
+    const saved = {};
+    products.forEach((p,i)=>{ saved[i] = p.name; });
+    let stored = true;
+    try{ localStorage.setItem(NAME_STORAGE_KEY,JSON.stringify(saved)); }catch(error){ stored = false; }
+    closeNameModal();
+    refreshProductViews();
+    const detail = document.getElementById("detailName");
+    if(detail && document.getElementById("productView").classList.contains("active") && detail.textContent === oldName){ detail.textContent = newName; }
+    showToast(stored ? "Name changed. Click PUBLISH UPDATED WEBSITE to share it with customers." : "Name changed for now, but this browser could not save it. Click PUBLISH UPDATED WEBSITE before closing the page.");
+}
+
+function loadProductPictures(){
+    const publishedCategories = document.getElementById("emaar-published-category-images");
+    if(publishedCategories){
+        try{
+            const data = JSON.parse(publishedCategories.textContent || "{}");
+            categories.forEach((category,index)=>{ if(data[index]) category.image = data[index]; });
+        }catch(error){ console.warn("Could not read published category pictures.",error); }
+    }
+    try{
+        const data = JSON.parse(localStorage.getItem(CATEGORY_PICTURE_STORAGE_KEY) || "{}");
+        categories.forEach((category,index)=>{ if(data[index]) category.image = data[index]; });
+    }catch(error){ console.warn("Could not read saved category pictures.",error); }
+
+    const publishedData = document.getElementById("emaar-published-images");
+    if(publishedData){
+        try{
+            const publishedImages = JSON.parse(publishedData.textContent || "{}");
+            products.forEach((product,index)=>{
+                if(publishedImages[index]) product.image = publishedImages[index];
+            });
+        }catch(error){
+            console.warn("Could not read published product pictures.",error);
+        }
+    }
+
+    try{
+        const savedImages = JSON.parse(localStorage.getItem(PICTURE_STORAGE_KEY) || "{}");
+        products.forEach((product,index)=>{
+            if(savedImages[index]) product.image = savedImages[index];
+        });
+    }catch(error){
+        console.warn("Could not read locally saved product pictures.",error);
+    }
+}
+
+function toggleAdmin(){
+    if(document.body.classList.contains("admin-mode")){
+        document.body.classList.remove("admin-mode");
+        document.getElementById("adminToggle").textContent = "ADMIN LOGIN";
+        refreshProductViews();
+    }else{
+        const modal = document.getElementById("adminLoginModal");
+        const error = document.getElementById("adminLoginError");
+        error.style.display = "none";
+        modal.classList.add("open");
+        setTimeout(()=>document.getElementById("adminPasswordInput").focus(),50);
+    }
+}
+
+function closeAdminLogin(){
+    document.getElementById("adminLoginModal").classList.remove("open");
+    document.getElementById("adminPasswordInput").value = "";
+}
+
+function submitAdminLogin(){
+    const passwordField = document.getElementById("adminPasswordInput");
+    const enteredPassword = passwordField ? passwordField.value.trim() : "";
+    const error = document.getElementById("adminLoginError");
+    if(enteredPassword === ADMIN_PASSWORD){
+        document.body.classList.add("admin-mode");
+        const toggle = document.getElementById("adminToggle");
+        if(toggle) toggle.textContent = "ADMIN LOGOUT";
+        closeAdminLogin();
+        refreshProductViews();
+        // Re-render the visible product lists after enabling admin mode.
+        renderCategories();
+        renderHomeProducts();
+        if(document.getElementById("categoryView").classList.contains("active")){
+            const categoryName = document.getElementById("categoryTitle").textContent;
+            const categoryProducts = products.filter(p=>p.cat===categoryName);
+            document.getElementById("categoryProducts").innerHTML = categoryProducts.map(productCard).join("") || '<div class="empty">Products will be added soon.</div>';
+        }
+        const publishBar = document.getElementById("adminPublishBar");
+        if(publishBar) publishBar.scrollIntoView({behavior:"smooth",block:"nearest"});
+    }else{
+        if(error) error.style.display = "block";
+        if(passwordField){ passwordField.focus(); passwordField.select(); }
+    }
+}
+// Make the login action available to the page's inline buttons.
+window.submitAdminLogin = submitAdminLogin;
+
+function chooseCategoryPicture(index){
+    const picker = document.getElementById("category-picture-file-" + index);
+    if(picker) picker.click();
+}
+
+function saveCategoryPicture(index,input){
+    const file = input.files && input.files[0];
+    if(!file) return;
+    if(!file.type.startsWith("image/")){ alert("Please choose an image file."); input.value=""; return; }
+    if(file.size > 1500000){ alert("Please choose an image smaller than 1.5 MB."); input.value=""; return; }
+    const reader = new FileReader();
+    reader.onload = function(){
+        categories[index].image = reader.result;
+        const saved = {};
+        categories.forEach((category,i)=>{ if(category.image) saved[i]=category.image; });
+        try{ localStorage.setItem(CATEGORY_PICTURE_STORAGE_KEY,JSON.stringify(saved)); }
+        catch(error){ alert("Storage limit reached. Try a smaller picture file size."); return; }
+        renderCategories();
+        alert("Category main picture saved! Click PUBLISH UPDATED WEBSITE to include it for customers.");
+    };
+    reader.readAsDataURL(file);
+}
+
+function chooseProductPicture(index){
+    const picker = document.getElementById("picture-file-" + index);
+    if(picker) picker.click();
+}
+
+function saveProductPicture(index,input){
+    const file = input.files && input.files[0];
+    if(!file) return;
+
+    if(!file.type.startsWith("image/")){
+        alert("Please choose an image file.");
+        input.value = "";
+        return;
+    }
+    if(file.size > 1500000){
+        alert("Please choose an image smaller than 1.5 MB.");
+        input.value = "";
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(){
+        products[index].image = reader.result;
+
+        const savedImages = {};
+        products.forEach((product,i)=>{
+            if(product.image) savedImages[i] = product.image;
+        });
+
+        try{
+            localStorage.setItem(PICTURE_STORAGE_KEY,JSON.stringify(savedImages));
+        }catch(error){
+            alert("Storage limit reached. Try a smaller picture file size.");
+            return;
+        }
+
+        refreshProductViews();
+        alert("Picture saved! Click 'PUBLISH UPDATED WEBSITE' to download the updated HTML file.");
+    };
+    reader.readAsDataURL(file);
+}
+
+function refreshProductViews(){
+    renderCategories();
+    const searchBox = document.getElementById("homeSearch");
+    const searchTerm = searchBox ? searchBox.value.toLowerCase().trim() : "";
+    const visibleProducts = searchTerm
+        ? products.filter(p=>(p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(searchTerm))
+        : products.slice(0,8);
+
+    document.getElementById("homeProducts").innerHTML =
+        visibleProducts.length ? visibleProducts.map(productCard).join("") :
+        '<div class="empty">No matching products found.</div>';
+
+    if(document.getElementById("categoryView").classList.contains("active")){
+        const categoryName = document.getElementById("categoryTitle").textContent;
+        const categoryProducts = products.filter(p=>p.cat===categoryName);
+        document.getElementById("categoryProducts").innerHTML =
+            categoryProducts.map(productCard).join("") ||
+            '<div class="empty">Products will be added soon.</div>';
+    }
+
+    if(document.getElementById("productView").classList.contains("active")){
+        const currentName = document.getElementById("detailName").textContent;
+        const currentIndex = products.findIndex(p=>p.name===currentName);
+        if(currentIndex !== -1){
+            const current = products[currentIndex];
+            document.getElementById("detailArt").innerHTML = current.image
+                ? `<img src="${current.image}" alt="${current.name}" style="width:100%;height:100%;object-fit:cover">`
+                : artFor(current);
+        }
+    }
+}
+
+function exportUpdatedWebsite(){
+    const images = {};
+    products.forEach((product,index)=>{
+        if(product.image) images[index] = product.image;
+    });
+
+    const categoryImages = {};
+    categories.forEach((category,index)=>{ if(category.image) categoryImages[index]=category.image; });
+
+    const pageCopy = document.documentElement.cloneNode(true);
+    pageCopy.querySelector("body").classList.remove("admin-mode");
+
+    const dataTag = pageCopy.querySelector("#emaar-published-images");
+    if(dataTag){
+        dataTag.textContent = JSON.stringify(images).replace(/</g,"\\u003c");
+    }
+
+    const names = {};
+    products.forEach((product,index)=>{ names[index] = product.name; });
+    const namesTag = pageCopy.querySelector("#emaar-published-names");
+    if(namesTag){ namesTag.textContent = JSON.stringify(names).replace(/</g,"\\u003c"); }
+
+    const categoryDataTag = pageCopy.querySelector("#emaar-published-category-images");
+    if(categoryDataTag){ categoryDataTag.textContent = JSON.stringify(categoryImages).replace(/</g,"\\u003c"); }
+
+    const output = "<!DOCTYPE html>\n" + pageCopy.outerHTML;
+    const blob = new Blob([output],{type:"text/html;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement("a");
+    downloadLink.href = url;
+    downloadLink.download = "index.html";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    downloadLink.remove();
+    URL.revokeObjectURL(url);
+}
+
+loadProductNames();
+loadProductPictures();
+renderCategories();
+renderHomeProducts();
+</script>
+</body>
+</html>
